@@ -6,6 +6,7 @@ import '../utils/cat_stats_helper.dart';
 import '../widgets/info_card.dart';
 import '../widgets/stat_card.dart';
 import '../widgets/url_handler.dart';
+import '../widgets/country_flag_widget.dart';
 
 class CatDetailScreen extends StatelessWidget {
   final CatBreed breed;
@@ -160,11 +161,37 @@ class CatDetailScreen extends StatelessWidget {
       iconColor: Colors.blue,
       child: Column(
         children: [
-          InfoRow(
-            icon: Icons.location_on,
-            iconColor: Colors.blue,
-            label: 'Origen',
-            value: CatStatsHelper.formatOrigin(breed.origin),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: ResponsiveUtils.getAdaptiveSpacing(context, 4),
+            ),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.location_on,
+                  size: ResponsiveUtils.getAdaptiveFontSize(context, 16),
+                  color: Colors.blue,
+                ),
+                SizedBox(width: ResponsiveUtils.getAdaptiveSpacing(context, 8)),
+                Text(
+                  'Origen: ',
+                  style: TextStyle(
+                    fontSize: ResponsiveUtils.getAdaptiveFontSize(context, 14),
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Expanded(
+                  child: CountryFlagWidget(
+                    countryName: breed.origin,
+                    flagSize: ResponsiveUtils.getAdaptiveFontSize(context, 18),
+                    textStyle: TextStyle(
+                      fontSize: ResponsiveUtils.getAdaptiveFontSize(context, 14),
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           if (breed.lifeSpan?.isNotEmpty == true) ...[
             SizedBox(height: ResponsiveUtils.getAdaptiveSpacing(context, 8)),

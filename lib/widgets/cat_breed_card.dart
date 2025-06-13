@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../models/cat_breed.dart';
 import '../utils/responsive_utils.dart';
+import 'country_flag_widget.dart';
 
 class CatBreedCard extends StatelessWidget {
   final CatBreed breed;
@@ -104,17 +105,13 @@ class CatBreedCard extends StatelessWidget {
                     SizedBox(
                       height: ResponsiveUtils.getAdaptiveSpacing(context, 4),
                     ),
-                    Text(
-                      breed.origin,
-                      style: TextStyle(
-                        fontSize: ResponsiveUtils.getAdaptiveFontSize(
-                          context,
-                          12,
-                        ),
+                    CountryFlagWidget(
+                      countryName: breed.origin,
+                      flagSize: ResponsiveUtils.getAdaptiveFontSize(context, 16),
+                      textStyle: TextStyle(
+                        fontSize: ResponsiveUtils.getAdaptiveFontSize(context, 12),
                         color: Colors.grey[600],
                       ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                     ),
                     SizedBox(
                       height: ResponsiveUtils.getAdaptiveSpacing(context, 8),
