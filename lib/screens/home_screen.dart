@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Razas de Gatos',
+          'RAZAS DE GATOS',
           style: TextStyle(
             fontSize: ResponsiveUtils.getAdaptiveFontSize(context, 20),
             fontWeight: FontWeight.bold,
